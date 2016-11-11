@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Cmoeplus
+Bundle-SymbolicName: ugent.mis.cmoeplus
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: ugent.mis.cmoeplus.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: ugent.mis.cmoeplus
+Bundle-ClassPath: .,
+ lib/owlapi-distribution-3.4.5.jar,
+ lib/HermiT.jar
+Import-Package: org.cheetahplatform.common.logging
+

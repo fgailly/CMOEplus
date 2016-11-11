@@ -1,0 +1,997 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#"
+     xml:base="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3">
+        <owl:imports rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Administrative -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Administrative">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Person"/>
+        <rdfs:comment>An employee responsible for administrative tasks</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Appy_Treatment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Appy_Treatment"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#BloodPressure -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#BloodPressure">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#VitalSigns"/>
+        <rdfs:comment>The pressure of the blood in the circulatory system, 
+often measured for diagnosis  as it is closely related 
+to the force and rate of the heartbeat and the 
+diameter and elasticity of the arteria walls.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Clinic -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Clinic">
+        <rdfs:comment>An establishment where patients are admitted 
+for special study and treatment by a group of 
+health care professionals practicing together</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#ClinicalInitiativeNurse -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#ClinicalInitiativeNurse">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#ClinicalStaff"/>
+        <rdfs:comment>A nurse who is providing nursing care 
+to patients in emergency department&apos;s 
+waiting room</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#ClinicalStaff -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#ClinicalStaff">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Person"/>
+        <rdfs:comment>A person who works under the supervision 
+of a physician or other qualified health care 
+professional and who is allowed by law, 
+regulations and facility policy to perform or 
+assist in performance of a specified 
+professional service</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Condition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Condition"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Cough -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Cough">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Symptoms"/>
+        <rdfs:comment>Cough is a natural reflex that protects the lungs. 
+Coughing helps to clear the airways of lung irritants 
+such as smoke and mucus.  This helps to prevent 
+infections. A cough is also a symptom of a medical problem</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Data -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Data">
+        <rdfs:comment>Piece of information which is a part of a collection to be used in an analyses of a problem, such as diagnosis of a health problem.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Device -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Device">
+        <rdfs:comment>An appliance, usually mechanical, designed to perform a specific function.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Diagnosis -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Diagnosis">
+        <rdfs:comment>Determination of the nature of the cause of a disease.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#DifferentialDiagnosis -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#DifferentialDiagnosis">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Diagnosis"/>
+        <rdfs:comment>The determination which one of the several 
+diseases may be producing the symptoms</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#EmergencyDepartment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#EmergencyDepartment">
+        <rdfs:comment>A section of an institution that is staffed 
+and equipped to provide rapid and varied 
+emergency care, specially for those who 
+are stricken with sudden and acute illness 
+or who are victims of severe trauma</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Examination -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Examination">
+        <rdfs:comment>Examination of body state, made for the purpose of diagnosis.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Examine_Symptoms -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Examine_Symptoms">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Perform_Examination"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Fever -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Fever">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Symptoms"/>
+        <rdfs:comment>Is body temperature elivation over 37.8 degree Celsuis</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Headache -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Headache">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Symptoms"/>
+        <rdfs:comment>A headache involves pain in the head 
+which can arise from many disorders 
+or may be a disorder of itself</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#HealthCare -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#HealthCare">
+        <rdfs:comment>Health care provided by a medical facility to a patient</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#HeartBeat -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#HeartBeat">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#VitalSigns"/>
+        <rdfs:comment>A complete cardiac cycle, including spread 
+of the electrical impulse and a consequent 
+mechanical contraction</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#HearthAttack -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#HearthAttack"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Hospital -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Hospital">
+        <rdfs:comment>An institution for the care and treatment 
+of the acutely sick and injured</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#IDCard -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#IDCard">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Data"/>
+        <rdfs:comment>Is a cocument which may be used to identify a person, or verify aspects of a person&apos;s personal identity</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#MedicalFacility -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#MedicalFacility">
+        <rdfs:comment>Health care institution which have accommodation facilities, and which engage in providing short -term and long - term medical treatment of a general or specialized nature</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#MedicalHistory -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#MedicalHistory">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Data"/>
+        <rdfs:comment>Information about the medical history
+of a patient</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#MedicalInstitution -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#MedicalInstitution">
+        <rdfs:comment>Any public or private, medical or dental facility where clinical trials are conducted.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Medication -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Medication">
+        <rdfs:comment>Any Chemical compound used in diagnosis, treatment or prevention of desease or other abnormal condition</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Paramedics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Paramedics">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Person"/>
+        <rdfs:comment>A person who is trained to do medical work, 
+specially emergency first aid, but is not a full 
+qualified doctor</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Passport -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Passport">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Data"/>
+        <rdfs:comment>An official document issued by a government, certifying holder&apos;s identity and citizenship, and entiteling them to travel under its protection to and from foreign countries.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Patient -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Patient">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Person"/>
+        <rdfs:comment>A person who is ill or is undergoing treatment for disease.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PatientArrived -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PatientArrived">
+        <rdfs:comment>An event indicating patient&apos;s arrival to the medical facility</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PatientDischarged -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PatientDischarged">
+        <rdfs:comment>An event indicating that the patient was discharged from the medical facility</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PatientRedirected -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PatientRedirected">
+        <rdfs:comment>An event indicating that the patient was redirected to another medical facility</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PediatricServices -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PediatricServices">
+        <rdfs:comment>Medical services offered to infants, children and adolescents</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Perform_Examination -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Perform_Examination"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Perform_PhysicalExamination -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Perform_PhysicalExamination">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Perform_Examination"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Perform_SurgicalExamination -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Perform_SurgicalExamination">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Perform_Examination"/>
+        <rdfs:comment>Examination performed by a Surgeon</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Person -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Person">
+        <rdfs:comment>A living human</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Pharmacy -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Pharmacy">
+        <rdfs:comment>A place where drugs are compounded or dispensed</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PhysicalExamination -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PhysicalExamination">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Examination"/>
+        <rdfs:comment>Examination of body state, made for the purpose of diagnosis.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PhysicalTherapy -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PhysicalTherapy">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Therapy"/>
+        <rdfs:comment>Treatment in order to prevent, correct, 
+and limit physical disability and bodily malfuntioning</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Physician -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Physician">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Person"/>
+        <rdfs:comment>An authorized practitioner of medicine, 
+as one graduated from a college of medicine 
+and licensed by the appropriate board</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Radiation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Radiation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Therapy"/>
+        <rdfs:comment>Application of x-ray or radioactive 
+substances for treatment of various illnesses</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#SpeachTherapy -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#SpeachTherapy">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Therapy"/>
+        <rdfs:comment>Training to help people with speech and language problems.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Surgeon -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Surgeon">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Physician"/>
+        <rdfs:comment>A doctor specialized in surgery</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Surgery -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Surgery">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Therapy"/>
+        <rdfs:comment>Operation performed by a qualified surgeon 
+for removal or replacement of a diseased 
+tissue by cutting</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Symptoms -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Symptoms">
+        <rdfs:comment>Subjective indication of a disease 
+or a change in condition as 
+perceived by the patient</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Therapy -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Therapy">
+        <rdfs:comment>Treatment of disease or disorder by any method</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Trauma -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Trauma">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Symptoms"/>
+        <rdfs:comment>Injury, psychological or emotional damage</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Treatment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Treatment">
+        <rdfs:comment>MAnagement and care of the patient</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#TriageNurse -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#TriageNurse">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#ClinicalStaff"/>
+        <rdfs:comment>A nurse whose responsibility is sorting patients 
+arriving to the emergency department into groups 
+based on their need for immediate medical treatment</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#VitalSigns -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#VitalSigns">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Data"/>
+        <rdfs:comment>Measurement of pulse rate, body temperature,
+and blood pressure to assess health or disfunction</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Administrative -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Administrative">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Role_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Apply_Treatment -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Apply_Treatment">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Event_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#BloodPressure -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#BloodPressure">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Quality_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#BodyTemperature -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#BodyTemperature">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Quality_Universal"/>
+        <rdfs:comment>Measure of the body&apos;s ebility 
+to generate and get rid of heat</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Clinic -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Clinic">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Base_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#ClinicalInitiativeNurse -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#ClinicalInitiativeNurse">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Role_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#ClinicalStaff -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#ClinicalStaff">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Role_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Condition -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Condition">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Quality_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Cough -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Cough">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Quality_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Data -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Data">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Mixin_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Device -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Device">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Mixin_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Diagnosis -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Diagnosis">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Quality_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#DifferentialDiagnosis -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#DifferentialDiagnosis">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Quality_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#EmergencyDepartment -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#EmergencyDepartment">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Base_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Examination -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Examination">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Relator_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Examine_MedicalHistory -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Examine_MedicalHistory">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Event_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Examine_Symptoms -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Examine_Symptoms">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Event_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Fever -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Fever">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Quality_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Headache -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Headache">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Quality_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#HealthCare -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#HealthCare">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Relator_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#HeartAttack -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#HeartAttack">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Quality_Universal"/>
+        <rdfs:comment>Is the death of or damage to part of the 
+heart muscle because the supply of blood 
+to the heart muscle is severely reduced or stopped</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#HeartBeat -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#HeartBeat">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Quality_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Hospital -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Hospital">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Base_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#IDCard -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#IDCard">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Quality_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#MedicalFacility -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#MedicalFacility">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Base_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#MedicalHistory -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#MedicalHistory">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Quality_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#MedicalInstitution -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#MedicalInstitution">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Mixin_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Medication -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Medication">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Base_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Obtain_VitalSigns -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Obtain_VitalSigns">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Event_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Paramedics -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Paramedics">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Role_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Passport -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Passport">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Quality_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Patient -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Patient">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Role_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PatientArrived -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PatientArrived">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Event_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PatientDetails -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PatientDetails">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Quality_Universal"/>
+        <rdfs:comment>Any information relevant for the patient, such as name, age, etc</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PatientDischarged -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PatientDischarged">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Event_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PatientRedirected -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PatientRedirected">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Event_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PediatricServices -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PediatricServices">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Relator_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Perform_PhysicalExamination -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Perform_PhysicalExamination">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Event_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Perform_SurgicalExamination -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Perform_SurgicalExamination">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Event_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Person -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Person">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Base_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Pharmacy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Pharmacy">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Base_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PhysicalExamination -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PhysicalExamination">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Relator_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PhysicalTherapy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PhysicalTherapy">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Relator_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Physician -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Physician">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Role_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Prescription -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Prescription">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Base_Type"/>
+        <rdfs:comment>A written formula for preparation and edministration of any remedy</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PrescriptionProcessed -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PrescriptionProcessed">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Event_Type"/>
+        <rdfs:comment>An event indicating that the prescription 
+possessed by the pacient was processed 
+by the pharmacist</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PrescriptionReceived -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#PrescriptionReceived">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Event_Type"/>
+        <rdfs:comment>An event indicating receipt of medical prescription by the patient</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Produce_DifferentialDiagnosis -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Produce_DifferentialDiagnosis">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Event_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Radiation -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Radiation">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Relator_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Register_Patient -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Register_Patient">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Event_Type"/>
+        <rdfs:comment>Adminstrative registers patient based 
+on date provided by the patient</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#SpeachTherapy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#SpeachTherapy">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Relator_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Surgeon -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Surgeon">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Role_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Surgery -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Surgery">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Relator_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Symptoms -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Symptoms">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Quality_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Therapy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Therapy">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Relator_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Trauma -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Trauma">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Quality_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Treatment -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#Treatment">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Relator_Universal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#TriageNurse -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#TriageNurse">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Role_Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#VitalSigns -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nalkhald/ontologies/2016/3/untitled-ontology-3#VitalSigns">
+        <rdf:type rdf:resource="http://www.mis.ugent.be/ontologies/ufo.owl#Quality_Universal"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

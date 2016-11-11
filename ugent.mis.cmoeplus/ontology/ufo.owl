@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.mis.ugent.be/ontologies/ufo.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://www.mis.ugent.be/ontologies/ufo.owl">
+    <Prefix name="" IRI="http://www.mis.ugent.be/ontologies/ufo.owl#"/>
+    <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#BaseType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EventType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FormalRelationshipType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MaterialRelationshipType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MixinType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ObjectType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PhaseType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#QualityUniversal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RelatorUniversal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RoleType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SortalType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Universal"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDomain"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasQuality"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasRange"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isMediatedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#mediates"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#objectifies"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#participates"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#RelatorUniversal"/>
+        <ObjectMinCardinality cardinality="2">
+            <ObjectProperty IRI="#mediates"/>
+            <Class IRI="#ObjectType"/>
+        </ObjectMinCardinality>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#BaseType"/>
+        <Class IRI="#SortalType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EventType"/>
+        <Class IRI="#Universal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MixinType"/>
+        <Class IRI="#ObjectType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ObjectType"/>
+        <Class IRI="#Universal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PhaseType"/>
+        <Class IRI="#SortalType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#QualityUniversal"/>
+        <Class IRI="#Universal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RelatorUniversal"/>
+        <Class IRI="#Universal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RoleType"/>
+        <Class IRI="#SortalType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SortalType"/>
+        <Class IRI="#ObjectType"/>
+    </SubClassOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#mediates"/>
+        <ObjectProperty IRI="#isMediatedBy"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasDomain"/>
+        <Class IRI="#MaterialRelationshipType"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasQuality"/>
+        <Class IRI="#ObjectType"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasRange"/>
+        <Class IRI="#MaterialRelationshipType"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isMediatedBy"/>
+        <Class IRI="#ObjectType"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#mediates"/>
+        <Class IRI="#RelatorUniversal"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#objectifies"/>
+        <Class IRI="#RelatorUniversal"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#participates"/>
+        <Class IRI="#EventType"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasDomain"/>
+        <Class IRI="#ObjectType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasQuality"/>
+        <Class IRI="#QualityUniversal"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasRange"/>
+        <Class IRI="#ObjectType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isMediatedBy"/>
+        <Class IRI="#RelatorUniversal"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#mediates"/>
+        <Class IRI="#ObjectType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#objectifies"/>
+        <Class IRI="#MaterialRelationshipType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#participates"/>
+        <Class IRI="#ObjectType"/>
+    </ObjectPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
