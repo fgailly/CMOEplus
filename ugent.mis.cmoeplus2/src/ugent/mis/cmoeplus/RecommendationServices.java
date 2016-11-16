@@ -72,7 +72,7 @@ public abstract class RecommendationServices {
 
 		// add owl dataproperties to suggestionlist
 		Set<OWLDataProperty> dataProperties = manager.getESO().getDataPropertiesInSignature();
-		//printOWLDataProperties(dataProperties, "ESO DataProperties");
+		manager.printOWLDataProperties(dataProperties, "ESO DataProperties");
 		for (OWLDataProperty prop : dataProperties) {
 			OWLAnnotationProperty description = fac.getOWLAnnotationProperty(OWLRDFVocabulary.RDFS_COMMENT.getIRI());
 			String descriptionValue = "";
@@ -112,7 +112,7 @@ public abstract class RecommendationServices {
 				extendedIndividuals.add(fac.getOWLNamedIndividual(owlClass3.getIRI()));
 			}
 		}
-		return extendedIndividuals;
+		return filterIndividuals(extendedIndividuals);
 	}
 
 	public SortedSet<Recommendation> suggestionList(String irimodellingConstruct, String label){
@@ -132,7 +132,7 @@ public abstract class RecommendationServices {
 			}
 		}
 
-		//Rule-based recommendation Ssrvice
+		//Rule-based recommendation Service
 		if (properties.isRuleBasedRecommendationService()){
 
 			Set<OWLNamedIndividual> individuals = filterIndividuals(ruleBasedRecommendationService(irimodellingConstruct));
