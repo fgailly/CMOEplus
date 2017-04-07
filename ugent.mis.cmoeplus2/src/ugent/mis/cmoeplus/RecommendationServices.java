@@ -13,20 +13,29 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.HermiT.Reasoner;
 import org.semanticweb.owlapi.model.AddAxiom;
+import org.semanticweb.owlapi.model.AddImport;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotation;
 import org.semanticweb.owlapi.model.OWLAnnotationProperty;
+import org.semanticweb.owlapi.model.OWLAxiom;
+import org.semanticweb.owlapi.model.OWLAxiomVisitor;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLEntity;
+import org.semanticweb.owlapi.model.OWLImportsDeclaration;
+import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.reasoner.Node;
 import org.semanticweb.owlapi.reasoner.NodeSet;
 import org.semanticweb.owlapi.util.OWLEntityRemover;
@@ -96,6 +105,7 @@ public abstract class RecommendationServices {
 	}
 	
 	protected  Set<OWLNamedIndividual> modelLanguageRecommendationService(String irimodellingConstruct){
+		System.out.println("Type of construct;" + irimodellingConstruct);
 		OWLDataFactory fac = manager.getOWLManager().getOWLDataFactory();
 		OWLClass owlClass = fac.getOWLClass(IRI
 				.create(irimodellingConstruct));
@@ -104,14 +114,15 @@ public abstract class RecommendationServices {
 		NodeSet<OWLNamedIndividual> individuals = reasoner.getInstances(owlClass, false);
 		Set<OWLNamedIndividual> extendedIndividuals = individuals.getFlattened();
 
-		for(Node<OWLNamedIndividual> individual: individuals){
+		/*for(Node<OWLNamedIndividual> individual: individuals){
 			OWLClass owlClass2 = fac.getOWLClass(IRI
 					.create(individual.getRepresentativeElement().getIRI().toString()));
 			NodeSet<OWLClass> subClses = reasoner.getSubClasses(owlClass2, false);
 			for(OWLClass owlClass3: subClses.getFlattened()){
 				extendedIndividuals.add(fac.getOWLNamedIndividual(owlClass3.getIRI()));
 			}
-		}
+		}*/
+		printOWLIndividuals(filterIndividuals(extendedIndividuals), "Resultaat ML RS");
 		return filterIndividuals(extendedIndividuals);
 	}
 
@@ -121,8 +132,10 @@ public abstract class RecommendationServices {
 
 		//Model language Recommendation service
 		if (properties.isModelLanguageRecommendationService()){
+			System.out.println("ML RS active");
 
 			Set<OWLNamedIndividual> individuals = modelLanguageRecommendationService(irimodellingConstruct);
+			System.out.println("Number of recommendations:" + individuals.size());
 			for (OWLNamedIndividual ind : individuals) {
 				Recommendation sug = sugList.get(ind.getIRI());
 				sug.setScoreModelLanguageRecommendationService(properties.getWeightRuleBasedRecommendationService() 
@@ -132,7 +145,7 @@ public abstract class RecommendationServices {
 			}
 		}
 
-		//Rule-based recommendation Service
+		/*//Rule-based recommendation Service
 		if (properties.isRuleBasedRecommendationService()){
 
 			Set<OWLNamedIndividual> individuals = filterIndividuals(ruleBasedRecommendationService(irimodellingConstruct));
@@ -144,6 +157,20 @@ public abstract class RecommendationServices {
 				sug.setScoreRuleBasedREcommendationService(properties.getWeightRuleBasedRecommendationService() *
 						properties.scoreRuleBasedRecommendationService);
 			}
+		}*/
+		
+		//Rule-based recommendation Service
+		if (properties.isRuleBasedRecommendationService()){
+			for(OWLAxiom owlAxiom: getManager().getRulesO().getAxioms()){
+				Set<OWLNamedIndividual> individuals = filterIndividuals(ruleBasedRecommendationService2(irimodellingConstruct, owlAxiom));
+				for (OWLNamedIndividual ind : individuals) {
+					Recommendation sug = sugList.get(ind.getIRI());
+					sug.setScore(sug.getScore() + properties.getWeightRuleBasedRecommendationService() *
+								properties.scoreRuleBasedRecommendationService);
+						sug.setScoreRuleBasedREcommendationService(sug.getScoreRuleBasedRecommendationService() + properties.getWeightRuleBasedRecommendationService() *
+								properties.scoreRuleBasedRecommendationService);
+					}
+				}
 		}
 
 
@@ -212,6 +239,86 @@ public abstract class RecommendationServices {
 		element.accept(remover);
 		manager.getOWLManager().applyChanges(remover.getChanges());
 		reasoner.flush();
+		
+		printOWLIndividuals(filterIndividuals(extendedIndividuals), "Resultaat Rule RS");
+
+		return extendedIndividuals;
+
+	}
+	
+
+	protected Set<OWLNamedIndividual> ruleBasedRecommendationService2(String irimodellingConstruct, OWLAxiom axiom){
+		
+		Set<OWLNamedIndividual> extendedIndividuals = null;
+		
+		try {
+		IRI ontologyIRI = IRI.create("www.mis.ugent.be/ontologies/temp.owl");
+		OWLOntology tempO;
+		
+			tempO = manager.getOWLManager().createOntology(ontologyIRI);
+		
+		OWLDataFactory fac = manager.getOWLManager().getOWLDataFactory();
+		
+		OWLImportsDeclaration importModelDeclaraton =
+				fac.getOWLImportsDeclaration(manager.getModelO().getOntologyID().getOntologyIRI());
+		manager.getOWLManager().applyChange(new AddImport(tempO, importModelDeclaraton));
+		
+		for(OWLImportsDeclaration imports : manager.getRulesO().getImportsDeclarations()){
+			manager.getOWLManager().applyChange(new AddImport(tempO, imports));
+		}
+		
+		OWLClass owlClass = fac.getOWLClass(IRI
+				.create(irimodellingConstruct));
+		
+		System.out.println("Before: " + tempO.getAxiomCount());
+
+		OWLNamedIndividual element = fac.getOWLNamedIndividual(IRI.create("http://www.mis.ugent.be/ontologies/model" + "#" + "test2"));
+		OWLClassAssertionAxiom classAssertion = fac.getOWLClassAssertionAxiom(owlClass, element);
+		AddAxiom addIndividual = new AddAxiom(tempO, classAssertion);
+		// We now use the manager to apply the change
+		manager.getOWLManager().applyChange(addIndividual);
+		
+		AddAxiom addAxiom = new AddAxiom(tempO, axiom);
+		manager.getOWLManager().applyChange(addAxiom);
+		System.out.println("While: " + tempO.getAxiomCount());
+
+
+		org.semanticweb.HermiT.Reasoner reasoner = new Reasoner(tempO);
+		reasoner.flush();
+		OWLObjectProperty hasOntologyAnnotation = fac.getOWLObjectProperty(IRI
+				.create(manager.getSemanticAnnotationProperty()));
+
+
+		NodeSet<OWLNamedIndividual> individuals3 = reasoner.getObjectPropertyValues(element, hasOntologyAnnotation.getSimplified());
+		extendedIndividuals = individuals3.getFlattened();
+
+		for(Node<OWLNamedIndividual> individual: individuals3){
+			OWLClass owlClass2 = fac.getOWLClass(IRI
+					.create(individual.getRepresentativeElement().getIRI().toString()));
+			NodeSet<OWLClass> subClses = reasoner.getSubClasses(owlClass2, false);
+			for(OWLClass owlClass3: subClses.getFlattened()){
+				extendedIndividuals.add(fac.getOWLNamedIndividual(owlClass3.getIRI()));
+			}
+		}
+		
+		manager.getOWLManager().removeOntology(tempO);
+
+		/*OWLEntityRemover remover1 = new OWLEntityRemover(manager.getOWLManager(), Collections.singleton(tempO));
+		element.accept(remover1);
+		manager.getOWLManager().applyChanges(remover1.getChanges());
+		
+		
+		manager.getOWLManager().removeAxiom(tempO, axiom);
+		System.out.println("After: " + manager.getModelO().getAxiomCount());*/
+		
+		reasoner.flush();
+		
+		printOWLIndividuals(filterIndividuals(extendedIndividuals), "Resultaat Rule RS for axiom " + axiom.toString());
+		
+		} catch (OWLOntologyCreationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		return extendedIndividuals;
 
@@ -236,6 +343,16 @@ public abstract class RecommendationServices {
 				filteredEntities.add(entity);
 		}
 		return filteredEntities;
+	}
+	
+	public void printOWLIndividuals(Set<OWLNamedIndividual> clses, String title){
+		System.out.println();
+		System.out.println(title + "(size=" + clses.size() + ")");
+		System.out.println("--------------------------");
+		for(OWLNamedIndividual ocl: clses)
+			System.out.println(ocl.getIRI().toString());
+		System.out.println();
+
 	}
 
 }

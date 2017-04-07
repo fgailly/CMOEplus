@@ -1,12 +1,14 @@
 package ugent.mis.cmoeplus;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.io.OWLXMLOntologyFormat;
 import org.semanticweb.owlapi.model.AddAxiom;
 import org.semanticweb.owlapi.model.AddImport;
 import org.semanticweb.owlapi.model.IRI;
@@ -25,6 +27,7 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyChange;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.model.RemoveAxiom;
 import org.semanticweb.owlapi.util.OWLOntologyMerger;
 
@@ -87,7 +90,18 @@ public class OntologyManager {
 
 		try {
 			mergedO = merger.createMergedOntology(owlManager, mergedOntologyIRI);
-		} catch (OWLOntologyCreationException e) {
+			
+
+			 File file = new File("merge.owl");
+			 
+			 OWLXMLOntologyFormat owlxmlFormat = new OWLXMLOntologyFormat();
+			 owlManager.saveOntology(mergedO, owlxmlFormat, IRI.create(file.toURI()));
+			 
+			 System.out.println("Owl file saved: " + file.getAbsolutePath());
+			 
+			 
+			 file.createNewFile();
+		} catch (OWLOntologyCreationException | OWLOntologyStorageException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -109,8 +123,8 @@ public class OntologyManager {
 	public void makeModelOntology(String filename){
 
 		try {
-			IRI ontologyIRI = IRI.create("www.mis.ugent.be/ontologies/" + filename);
-			modelO = owlManager.createOntology(ontologyIRI);
+			
+			modelO = owlManager.createOntology(IRI.create("www.mis.ugent.be/ontologies/" + filename));
 			OWLDataFactory fac = owlManager.getOWLDataFactory();
 			OWLImportsDeclaration importBPMNDeclaraton =
 					fac.getOWLImportsDeclaration(MLO.getOntologyID().getOntologyIRI());
@@ -121,9 +135,9 @@ public class OntologyManager {
 			OWLImportsDeclaration importESODeclaraton =
 					fac.getOWLImportsDeclaration(ESO.getOntologyID().getOntologyIRI());
 			owlManager.applyChange(new AddImport(modelO, importESODeclaraton));
-			OWLImportsDeclaration importRulesDeclaraton =
-					fac.getOWLImportsDeclaration(rulesO.getOntologyID().getOntologyIRI());
-			owlManager.applyChange(new AddImport(modelO, importRulesDeclaraton));
+			//OWLImportsDeclaration importRulesDeclaraton =
+			//		fac.getOWLImportsDeclaration(rulesO.getOntologyID().getOntologyIRI());
+			//owlManager.applyChange(new AddImport(modelO, importRulesDeclaraton));
 
 
 
@@ -140,7 +154,7 @@ public class OntologyManager {
 				.create(iriConstruct));
 
 		//OWLNamedIndividual element = fac.getOWLNamedIndividual(IRI.create("http://www.mis.ugent.be/ontologies/model" + "#" + id));
-		OWLNamedIndividual element = fac.getOWLNamedIndividual(IRI.create(iriIndividual));
+	OWLNamedIndividual element = fac.getOWLNamedIndividual(IRI.create("#" + iriIndividual));
 
 		
 		OWLClassAssertionAxiom classAssertion = fac.getOWLClassAssertionAxiom(constructClass, element);
@@ -197,6 +211,7 @@ public class OntologyManager {
 
 	public IRI addModelAnnotation(String iriModelElement, String iriOntologyElement, Recommendation suggestion){
 		OWLDataFactory fac = owlManager.getOWLDataFactory();
+		System.out.println(iriOntologyElement);
 
 		OWLNamedIndividual modelElement = fac.getOWLNamedIndividual(IRI.create(iriModelElement));
 		OWLNamedIndividual ontologyElement = fac.getOWLNamedIndividual(IRI.create(iriOntologyElement));
@@ -276,6 +291,7 @@ public class OntologyManager {
 		System.out.println();
 
 	}
+
 	
 
 }
