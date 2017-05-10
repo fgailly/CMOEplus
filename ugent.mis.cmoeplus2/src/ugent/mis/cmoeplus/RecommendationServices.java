@@ -252,13 +252,14 @@ public abstract class RecommendationServices {
 		Set<OWLNamedIndividual> extendedIndividuals = null;
 		
 		try {
-		IRI ontologyIRI = IRI.create("www.mis.ugent.be/ontologies/temp.owl");
+		IRI ontologyIRI = IRI.create("www.mis.ugent.be/ontologies/temp3.owl");
 		OWLOntology tempO;
 		
 			tempO = manager.getOWLManager().createOntology(ontologyIRI);
 		
 		OWLDataFactory fac = manager.getOWLManager().getOWLDataFactory();
 		
+		System.out.println(manager.getModelO().getOntologyID().getOntologyIRI());
 		OWLImportsDeclaration importModelDeclaraton =
 				fac.getOWLImportsDeclaration(manager.getModelO().getOntologyID().getOntologyIRI());
 		manager.getOWLManager().applyChange(new AddImport(tempO, importModelDeclaraton));

@@ -3,10 +3,12 @@ package ugent.mis.cmoeplus;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.semanticweb.HermiT.Reasoner;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.io.OWLXMLOntologyFormat;
 import org.semanticweb.owlapi.model.AddAxiom;
@@ -29,6 +31,7 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.model.RemoveAxiom;
+import org.semanticweb.owlapi.util.OWLEntityRemover;
 import org.semanticweb.owlapi.util.OWLOntologyMerger;
 
 public class OntologyManager {
@@ -123,8 +126,10 @@ public class OntologyManager {
 	public void makeModelOntology(String filename){
 
 		try {
-			
-			modelO = owlManager.createOntology(IRI.create("www.mis.ugent.be/ontologies/" + filename));
+			IRI ontologyIRI = IRI.create("www.mis.ugent.be/ontologies/" + filename);
+			modelO = owlManager.createOntology(ontologyIRI);
+			System.out.println("created ontology: " + modelO.getOntologyID().getOntologyIRI());
+		
 			OWLDataFactory fac = owlManager.getOWLDataFactory();
 			OWLImportsDeclaration importBPMNDeclaraton =
 					fac.getOWLImportsDeclaration(MLO.getOntologyID().getOntologyIRI());
@@ -154,7 +159,7 @@ public class OntologyManager {
 				.create(iriConstruct));
 
 		//OWLNamedIndividual element = fac.getOWLNamedIndividual(IRI.create("http://www.mis.ugent.be/ontologies/model" + "#" + id));
-	OWLNamedIndividual element = fac.getOWLNamedIndividual(IRI.create("#" + iriIndividual));
+		OWLNamedIndividual element = fac.getOWLNamedIndividual(IRI.create("#" + iriIndividual));
 
 		
 		OWLClassAssertionAxiom classAssertion = fac.getOWLClassAssertionAxiom(constructClass, element);
@@ -174,6 +179,22 @@ public class OntologyManager {
 		//this.log(entry);
 
 
+		System.out.println("Updated ontology: " + modelO);
+		return element.getIRI();
+
+	}
+	
+	public IRI removeModelInstance(String iriIndividual){
+		
+		OWLDataFactory fac = owlManager.getOWLDataFactory();
+		org.semanticweb.HermiT.Reasoner reasoner = new Reasoner(modelO);
+		OWLNamedIndividual element = fac.getOWLNamedIndividual(IRI.create("#" + iriIndividual));
+		
+		OWLEntityRemover remover = new OWLEntityRemover(owlManager, Collections.singleton(modelO));
+		element.accept(remover);
+		owlManager.applyChanges(remover.getChanges());
+		reasoner.flush();
+		
 		System.out.println("Updated ontology: " + modelO);
 		return element.getIRI();
 
@@ -203,6 +224,19 @@ public class OntologyManager {
 		//entry.setAttribute("Element1 ", element1.toString()); 
 		//entry.setAttribute("Element2 ", element2.toString()); 
 		//this.log(entry);
+
+		System.out.println("Updated ontology: " + modelO);
+		return assertion;
+
+	}
+	
+	public OWLObjectPropertyAssertionAxiom removeModelRelationship(String iriConstructRelationship, String iriElement1, String iriElement2){
+		OWLDataFactory fac = owlManager.getOWLDataFactory();
+		OWLIndividual element1 = fac.getOWLNamedIndividual(IRI.create(iriElement1));
+		OWLIndividual element2 = fac.getOWLNamedIndividual(IRI.create(iriElement2));
+		OWLObjectProperty relationship = fac.getOWLObjectProperty(IRI.create(iriConstructRelationship));
+		OWLObjectPropertyAssertionAxiom assertion = fac.getOWLObjectPropertyAssertionAxiom(relationship, element1, element2);
+		owlManager.removeAxiom(modelO, assertion);
 
 		System.out.println("Updated ontology: " + modelO);
 		return assertion;
@@ -291,7 +325,6 @@ public class OntologyManager {
 		System.out.println();
 
 	}
-
 	
 
 }
