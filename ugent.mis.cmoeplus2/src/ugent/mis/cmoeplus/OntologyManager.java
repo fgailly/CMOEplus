@@ -206,8 +206,8 @@ public class OntologyManager {
 		//OWLNamedIndividual element = fac.getOWLNamedIndividual(IRI.create("iriElement1"));
 
 
-		OWLIndividual element1 = fac.getOWLNamedIndividual(IRI.create(iriElement1));
-		OWLIndividual element2 = fac.getOWLNamedIndividual(IRI.create(iriElement2));
+		OWLIndividual element1 = fac.getOWLNamedIndividual(IRI.create("#" + iriElement1));
+		OWLIndividual element2 = fac.getOWLNamedIndividual(IRI.create("#" + iriElement2));
 		// We want to link the subject and object with the hasFather property,
 		// so use the data factory to obtain a reference to this object
 		// property.
@@ -232,9 +232,9 @@ public class OntologyManager {
 	
 	public OWLObjectPropertyAssertionAxiom removeModelRelationship(String iriConstructRelationship, String iriElement1, String iriElement2){
 		OWLDataFactory fac = owlManager.getOWLDataFactory();
-		OWLIndividual element1 = fac.getOWLNamedIndividual(IRI.create(iriElement1));
-		OWLIndividual element2 = fac.getOWLNamedIndividual(IRI.create(iriElement2));
-		OWLObjectProperty relationship = fac.getOWLObjectProperty(IRI.create(iriConstructRelationship));
+		OWLIndividual element1 = fac.getOWLNamedIndividual(IRI.create("#"+ iriElement1));
+		OWLIndividual element2 = fac.getOWLNamedIndividual(IRI.create("#"+ iriElement2));
+		OWLObjectProperty relationship = fac.getOWLObjectProperty(IRI.create("#"+ iriConstructRelationship));
 		OWLObjectPropertyAssertionAxiom assertion = fac.getOWLObjectPropertyAssertionAxiom(relationship, element1, element2);
 		owlManager.removeAxiom(modelO, assertion);
 
@@ -279,7 +279,7 @@ public class OntologyManager {
 	public IRI removeModelAnnotation(String iriElement){
 		OWLDataFactory fac = owlManager.getOWLDataFactory();
 
-		OWLNamedIndividual modelElement = fac.getOWLNamedIndividual(IRI.create(modelO.getOntologyID().getOntologyIRI().toString() + "#" +iriElement));
+		OWLNamedIndividual modelElement = fac.getOWLNamedIndividual(IRI.create("#" +iriElement));
 		OWLObjectProperty relationship = fac.getOWLObjectProperty(IRI.create(semanticAnnotationProperty));
 
 		Set<OWLIndividual> domainElements = modelElement.getObjectPropertyValues(relationship, modelO);
