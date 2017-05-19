@@ -178,14 +178,17 @@ public abstract class RecommendationServices {
 		if (properties.isLabelBasedRecommendationService()){
 			for (Recommendation sug : sugList.values()) {
 				double max = 0.0;
-				max = getStringDistance(label,sug.getIri().getFragment().toLowerCase());
-				Set<String> synonyms = getSynonyms(label);
+				if(label != null){
+					max = getStringDistance(label,sug.getIri().getFragment().toLowerCase());
+					Set<String> synonyms = getSynonyms(label);
 
-				for (String synonym : synonyms) {
-					double score = getStringDistance(synonym, label);
-					if(score > max)
-						max = score;
+					for (String synonym : synonyms) {
+						double score = getStringDistance(synonym, label);
+						if(score > max)
+							max = score;
+					}
 				}
+					
 
 				sug.setScore(sug.getScore() + properties.getWeightLabelBasedRecommendationService() * max);
 				sug.setScoreLabelBasedRecommendationService(max * properties.getWeightLabelBasedRecommendationService() * max);
